@@ -1,0 +1,55 @@
+<html>
+<head>
+    <script>
+        var colorH1="yellow";
+        var storage = window.localStorage;
+
+        window.onload=function()
+        {//guarda los cambios en el html
+            if(typeof storage !== "undefined")
+            {          
+                var color = storage.getItem("color_h1");
+                if(typeof color !== 'undefined')
+                {
+                    cambiarColor(color);
+                }
+                //Storage.setItem("color_h1","yellow");
+                // console.log("Store Soportado");
+            }
+            else
+            {
+                console.error("No soportado");        
+            }
+        }
+
+        function cambiarColor(color)
+        {            
+            var element=document.getElementById("etiqueta_h1");
+           
+            element.style.color=color;
+        }
+        
+        function cambiarColorTexto()
+        {
+            var element=document.getElementById("color_h1");
+            storage.setItem("color_h1",element.value);
+            cambiarColor(element.value);
+        }
+</script>
+
+</head>
+
+<body>
+    <h1 id="etiqueta_h1" style="color: green; background-color: black" >Titulo principal</h1>
+    <label>color H1</label>
+    
+    <button onclick="cambiarColor('red')">Rojo</button>  
+    <button onclick="cambiarColor('green')">Verde</button>
+    <button onclick="cambiarColor('blue')">Azul</button>
+
+    <br>
+    <label>Color</label>
+    <input type="text" id="color_h1"></imput>
+    <button onclick="cambiarColorTexto()">Cambiar color</button>
+</body>
+</html>

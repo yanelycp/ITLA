@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script>
+        function cambiarColorTexto(color)
+        {
+            var element=document.getElementById("color_texto");
+            element.style.color=color;
+        }
+        </script>
+    </head>
+    <body>
+        <h1 id="etiqueta_h1" style="color: green; background-color: black" >Titulo principal</h1>
+    
+        <label>Color</label>
+        <input type="text" id="color_texto"></imput>
+        <button onclick="cambiarColorTexto('color_texto')">Cambiar color</button>
+        
+    </body>
+</html>
